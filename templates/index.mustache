@@ -8,7 +8,6 @@
 <head>
   <meta charset="utf-8">
 <!--
-
        __         __     __  __     ______        ______
       /\ \       /\ \   /\ \/ /    /\  ___\      /\  __ \
       \ \ \____  \ \ \  \ \  _"-.  \ \  __\      \ \  __ \
@@ -33,10 +32,22 @@
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/normalize.css">
   <link rel="stylesheet" href="stylesheets/style.css">
   <script src="javascripts/libs/modernizr-2.5.3.js"></script>
 </head>
 
 <body>
-  {{{body}}}
+
+  <header class="header">
+    <h1 class="title centered">
+      <object data="images/construction.svg" height="100px" width="100px" type="image/svg+xml" class="construction"></object>
+      Upright Netizen
+    </h1>
+  </header>
+
+  <section class="posts centered">
+    {{{posts}}}
+  </section>
 </body>

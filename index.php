@@ -7,10 +7,10 @@
  * directory elsewhere, ensure that it is added to your include path
  * or update this file path as needed.
  */
-require 'slim/Slim.php';
-include_once 'markdown.php';
-require 'MustacheView.php';
-MustacheView::$mustacheDirectory = 'mustache/';
+require 'lib/slim/Slim.php';
+include_once 'lib/markdown.php';
+require 'lib/MustacheView.php';
+MustacheView::$mustacheDirectory = 'lib/';
 
 /**
  * Step 2: Instantiate the Slim application
@@ -40,24 +40,36 @@ $app = new Slim(array(
  * The routes below work with PHP >= 5.3.
  */
 
-// ob_start();
-// require 'templates/body.mustache';
-// $body = ob_get_clean();
-
 //GET route
 $app->get('/', function () use ($app) {
 
-    ob_start();
-    require 'templates/body.md';
-    $md = ob_get_clean();
-    $body = Markdown($md);
+    #
+    #       Read our posts
+    #
+    $posts = opendir('posts');
+    $md = '';
+    $htmlPosts = '';
+
+    while ($file = readdir($posts)) {
+        if ($file !== "." && $file !== "..") {
+            $post = 'posts/'.$file;
+            $fh = fopen($post, 'r');
+            $md .= fread($fh, filesize($post));
+            fclose($fh);
+
+            $htmlPosts .= Markdown($md);
+            $htmlPosts .= '<p class="break">&para;</p>';
+            $md = '';
+        }
+    }
+
+    closedir($posts);
 
     $app->render('index.mustache', array(
         'title' => 'Upright Netizen',
         'description' => 'We break things',
         'author' => 'Nathan and Jared Stilwell',
-        // 'body' => '<h1>hello</h1>'
-        'body' => $body
+        'posts' => $htmlPosts
     ));
 });
 

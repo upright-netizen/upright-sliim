@@ -1,6 +1,80 @@
 /* Upright Netizen */
 
 body {
-  background-color : #272822;
-  color : #eee;
+  color : #444;
+  font-size : 24px;
+  font-family: 'News Cycle', sans-serif;
+  min-width : 700px;
+}
+
+.centered {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  border-bottom: 2px dashed;
+}
+
+.construction {
+    position : relative;
+    top : 25px;
+}
+
+.title {
+  font-size : 3em;
+  margin: 30px auto;
+}
+
+/*    Posts     */
+.posts a {
+  color : #777;
+  text-decoration : none;
+
+  -webkit-transition : all .5s ease-in-out;
+   -khtml-transition : all .5s ease-in-out;
+     -moz-transition : all .5s ease-in-out;
+      -ms-transition : all .5s ease-in-out;
+       -o-transition : all .5s ease-in-out;
+          transition : all .5s ease-in-out;
+}
+
+.posts a:hover {
+  color : #00e;
+
+  -webkit-transition : all .35s ease-in-out;
+   -khtml-transition : all .35s ease-in-out;
+     -moz-transition : all .35s ease-in-out;
+      -ms-transition : all .35s ease-in-out;
+       -o-transition : all .35s ease-in-out;
+          transition : all .35s ease-in-out;
+}
+
+.posts h1 {
+  font-size : 1.5em;
+}
+
+.posts .author:before {
+  content:'\00A7  ';
+  color : #0090FF;
+}
+
+.posts .author a {
+  color : #0090FF;
+}
+
+.posts .author a:hover {
+  color : #00e;
+
+  -webkit-transition : all .35s ease-in-out;
+   -khtml-transition : all .35s ease-in-out;
+     -moz-transition : all .35s ease-in-out;
+      -ms-transition : all .35s ease-in-out;
+       -o-transition : all .35s ease-in-out;
+          transition : all .35s ease-in-out;
+}
+
+.posts .break {
+  font-size : .85em;
+  text-align : center;
 }
